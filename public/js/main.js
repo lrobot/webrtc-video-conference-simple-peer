@@ -12,8 +12,8 @@ let localStream = null;
 let peers = {}
 
 // redirect if not https
-if(location.href.substr(0,5) !== 'https') 
-    location.href = 'https' + location.href.substr(4, location.href.length - 4)
+// if(location.href.substr(0,5) !== 'https') 
+//     location.href = 'https' + location.href.substr(4, location.href.length - 4)
 
 
 //////////// CONFIGURATION //////////////////
@@ -74,10 +74,10 @@ navigator.mediaDevices.getUserMedia(constraints).then(stream => {
     localVideo.srcObject = stream;
     localStream = stream;
 
-    init()
-
-}).catch(e => alert(`getusermedia error ${e.name}`))
-
+        init()
+    
+    }).catch(e => alert(`getusermedia error ${e.name}`))
+    
 /**
  * initialize the socket connections
  */
