@@ -15,7 +15,7 @@ const options = {
     cert: fs.readFileSync(path.join(__dirname,'..','ssl','cert.pem'), 'utf-8')
 }
 
-const port = process.env.PORT || 3012
+const port = parseInt(process.env.PORT) || 3012
 const tcp_port = port + 1;
 ////////////////////////////
 
