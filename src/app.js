@@ -25,7 +25,7 @@ function getCertOption(){
 }
 const options = getCertOption();
 
-const port = parseInt(process.env.PORT) || 3012
+const port = parseInt(process.env.PORT) || 8443
 const tcp_port = port + 1;
 ////////////////////////////
 
@@ -44,6 +44,7 @@ require('./socketController').socket_io_handler(io)
 httpsServer.listen(port, () => {
     console.log(`listening on port ${port}`)
 })
+
 
 
 
