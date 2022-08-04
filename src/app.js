@@ -11,7 +11,7 @@ var net = require('net')
 
 // insert your own ssl certificate and keys
 function getCertOption(){
-    if(fs.existsSync(path.json(__dirname, '..', 'ssl_link', 'privkey.pem'))){
+    if(fs.existsSync(path.join(__dirname, '..', 'ssl_link', 'privkey.pem'))){
         return {
             key: fs.readFileSync(path.join(__dirname,'..','ssl_link','privkey.pem'), 'utf-8'),
             cert: fs.readFileSync(path.join(__dirname,'..','ssl_link','cert.pem'), 'utf-8')
