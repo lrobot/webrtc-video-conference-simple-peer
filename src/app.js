@@ -10,10 +10,20 @@ var net = require('net')
 //////// CONFIGURATION ///////////
 
 // insert your own ssl certificate and keys
-const options = {
-    key: fs.readFileSync(path.join(__dirname,'..','ssl','key.pem'), 'utf-8'),
-    cert: fs.readFileSync(path.join(__dirname,'..','ssl','cert.pem'), 'utf-8')
+function getCertOption(){
+    if(fs.existsSync(path.json(__dirname, '..', 'ssl_link', 'privkey.pem'))){
+        return {
+            key: fs.readFileSync(path.join(__dirname,'..','ssl_link','privkey.pem'), 'utf-8'),
+            cert: fs.readFileSync(path.join(__dirname,'..','ssl_link','cert.pem'), 'utf-8')
+        }
+    } else {
+        return {
+            key: fs.readFileSync(path.join(__dirname,'..','ssl','key.pem'), 'utf-8'),
+            cert: fs.readFileSync(path.join(__dirname,'..','ssl','cert.pem'), 'utf-8')
+        }        
+    }
 }
+const options = getCertOption();
 
 const port = parseInt(process.env.PORT) || 3012
 const tcp_port = port + 1;
